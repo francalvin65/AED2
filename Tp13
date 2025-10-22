@@ -1,0 +1,139 @@
+// 1. Clase base Animal
+class Animal {
+    String nombre;
+    int edad;
+
+    public Animal(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    public void hacerSonido() {
+        System.out.println("El animal hace un sonido.");
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Nombre: " + nombre + ", Edad: " + edad + " años.");
+    }
+}
+
+// 2. Subclases que heredan de Animal
+
+// Subclase Dog
+class Dog extends Animal {
+    public Dog(String nombre, int edad) {
+        super(nombre, edad);
+    }
+
+    @Override
+    public void hacerSonido() {
+        System.out.println("El perro ladra: ¡Guau guau!");
+    }
+
+    public void correr() {
+        System.out.println(nombre + " está corriendo alegremente.");
+    }
+}
+
+// Subclase Cat
+class Cat extends Animal {
+    public Cat(String nombre, int edad) {
+        super(nombre, edad);
+    }
+
+    @Override
+    public void hacerSonido() {
+        System.out.println("El gato maúlla: ¡Miau miau!");
+    }
+
+    public void arañar() {
+        System.out.println(nombre + " está arañando el sofá (¡otra vez!).");
+    }
+}
+
+// Subclase Bird
+class Bird extends Animal {
+    public Bird(String nombre, int edad) {
+        super(nombre, edad);
+    }
+
+    @Override
+    public void hacerSonido() {
+        System.out.println("El pájaro canta: ¡Pío pío!");
+    }
+
+    public void volar() {
+        System.out.println(nombre + " está volando alto en el cielo.");
+    }
+}
+
+// Subclase Fish
+class Fish extends Animal {
+    public Fish(String nombre, int edad) {
+        super(nombre, edad);
+    }
+
+    @Override
+    public void hacerSonido() {
+        System.out.println("El pez hace burbujas: *blub blub*");
+    }
+
+    public void nadar() {
+        System.out.println(nombre + " está nadando tranquilamente en el agua.");
+    }
+}
+
+// 3. Clase Veterinaria
+import java.util.ArrayList;
+import java.util.List;
+
+class Veterinaria {
+    private List<Animal> listaAnimales;
+
+    public Veterinaria() {
+        this.listaAnimales = new ArrayList<>();
+    }
+
+    public void agregarAnimal(Animal a) {
+        listaAnimales.add(a);
+        System.out.println(a.nombre + " ha sido agregado a la veterinaria.");
+    }
+
+    public void mostrarAnimales() {
+        System.out.println("\n--- Lista de Animales en la Veterinaria Animalia ---");
+        for (Animal animal : listaAnimales) {
+            animal.mostrarInfo();
+            animal.hacerSonido();
+            System.out.println("--------------------");
+        }
+    }
+}
+
+// 4. Clase Main o Tester
+public class Main {
+    public static void main(String[] args) {
+        // Crear una instancia de Veterinaria
+        Veterinaria animalia = new Veterinaria();
+
+        // Agregar al menos cuatro animales de distintos tipos
+        Dog perro1 = new Dog("Buddy", 3);
+        Cat gato1 = new Cat("Whiskers", 5);
+        Bird pajaro1 = new Bird("Tweety", 1);
+        Fish pez1 = new Fish("Nemo", 2);
+
+        animalia.agregarAnimal(perro1);
+        animalia.agregarAnimal(gato1);
+        animalia.agregarAnimal(pajaro1);
+        animalia.agregarAnimal(pez1);
+
+        // Invocar mostrarAnimales() para ver los datos y sonidos
+        animalia.mostrarAnimales();
+
+        // (Opcional) Llamar también a los métodos propios de cada clase
+        System.out.println("\n--- Acciones específicas de cada animal ---");
+        perro1.correr();
+        gato1.arañar();
+        pajaro1.volar();
+        pez1.nadar();
+    }
+}
