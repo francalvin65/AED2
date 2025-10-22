@@ -17,7 +17,7 @@ class Animal {
     }
 }
 
-// 2. Subclases que heredan de Animal
+// 2. Subclases  de Animal
 
 // Subclase Dog
 class Dog extends Animal {
@@ -126,14 +126,8 @@ public class Main {
         animalia.agregarAnimal(pajaro1);
         animalia.agregarAnimal(pez1);
 
-        // Invocar mostrarAnimales() para ver los datos y sonidos
+        // Invocar mostrarAnimales() 
         animalia.mostrarAnimales();
 
-        // (Opcional) Llamar también a los métodos propios de cada clase
-        System.out.println("\n--- Acciones específicas de cada animal ---");
-        perro1.correr();
-        gato1.arañar();
-        pajaro1.volar();
-        pez1.nadar();
     }
 }
